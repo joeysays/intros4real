@@ -13,9 +13,14 @@ package Locks;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 public class MainView extends javax.swing.JFrame{
     
     private Controller c;
+  
+    
     /**
      * Creates new form MainView
      */
@@ -24,6 +29,8 @@ public class MainView extends javax.swing.JFrame{
         initComponents();
         initDefaultValues();
         setVisible(true);
+        
+       
     }
     
     public void initDefaultValues(){
@@ -36,11 +43,77 @@ public class MainView extends javax.swing.JFrame{
             arrivalCmb.addItem(Integer.toString(i));
             departureCmb.addItem(Integer.toString(i));
         }
+        
     }
     
     public void appendLog(String s){
         caltrainLog.append(s);
     }
+    
+    public JTable getPassTable1JTable() {
+    	return passengersTable1;
+    }
+    
+    public JTable getPassTable2JTable() {
+    	return passengersTable2;
+    }
+    
+    public JTable getPassTable3JTable() {
+    	return passengersTable3;
+    }
+    
+    public JTable getPassTable4JTable() {
+    	return passengersTable4;
+    }
+    
+    public JTable getPassTable5JTable() {
+    	return passengersTable5;
+    }
+    
+    public JTable getPassTable6JTable() {
+    	return passengersTable6;
+    }
+    
+    public JTable getPassTable7JTable() {
+    	return passengersTable7;
+    }
+    
+    public JTable getPassTable8JTable() {
+    	return passengersTable8;
+    }
+    
+    public JTable getTrainTable1JTable() {
+    	return trainTable1;
+    }
+    
+    public JTable getTrainTable2JTable() {
+    	return trainTable2;
+    }
+    
+    public JTable getTrainTable3JTable() {
+    	return trainTable3;
+    }
+    
+    public JTable getTrainTable4JTable() {
+    	return trainTable4;
+    }
+    
+    public JTable getTrainTable5JTable() {
+    	return trainTable5;
+    }
+    
+    public JTable getTrainTable6JTable() {
+    	return trainTable6;
+    }
+    
+    public JTable getTrainTable7JTable() {
+    	return trainTable7;
+    }
+    
+    public JTable getTrainTable8JTable() {
+    	return trainTable8;
+    }
+    
     
     public DefaultTableModel getPassengerTable1(){
         DefaultTableModel model = (DefaultTableModel)passengersTable1.getModel();
@@ -243,9 +316,9 @@ public class MainView extends javax.swing.JFrame{
         jLabel18.setText("Current Train");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(181, 255, 239));
+        setBackground(Color.LIGHT_GRAY);
 
-        bgpanel.setBackground(new java.awt.Color(181, 255, 239));
+        bgpanel.setBackground(Color.LIGHT_GRAY);
         bgpanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         menuPanel.setBackground(new java.awt.Color(158, 255, 239));
@@ -308,91 +381,83 @@ public class MainView extends javax.swing.JFrame{
         jScrollPane1.setViewportView(caltrainLog);
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
-        menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
-            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addPassengerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menuPanelLayout.createSequentialGroup()
-                                .addComponent(departureLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(departureCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(menuPanelLayout.createSequentialGroup()
-                                .addComponent(arrivalLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(arrivalCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(menuPanelLayout.createSequentialGroup()
-                                .addComponent(passengerIdLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passengerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addContainerGap(31, Short.MAX_VALUE)
-                        .addComponent(addPassengerTitle)))
-                .addGap(41, 41, 41))
-            .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addTrainBtn)
-                    .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(deployTrainsTitle)
-                        .addGroup(menuPanelLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(menuPanelLayout.createSequentialGroup()
-                                    .addComponent(trainSeatsLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(trainSeatsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(menuPanelLayout.createSequentialGroup()
-                                    .addComponent(trainIdLbl)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(trainIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	menuPanelLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(menuPanelLayout.createSequentialGroup()
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(menuPanelLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(addTrainBtn))
+        				.addGroup(menuPanelLayout.createParallelGroup(Alignment.TRAILING)
+        					.addGroup(menuPanelLayout.createSequentialGroup()
+        						.addGap(0, 215, Short.MAX_VALUE)
+        						.addComponent(addPassengerBtn, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+        					.addGroup(menuPanelLayout.createSequentialGroup()
+        						.addGap(31)
+        						.addGroup(menuPanelLayout.createParallelGroup(Alignment.LEADING)
+        							.addGroup(menuPanelLayout.createSequentialGroup()
+        								.addComponent(departureLbl)
+        								.addPreferredGap(ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+        								.addComponent(departureCmb, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+        							.addGroup(menuPanelLayout.createSequentialGroup()
+        								.addComponent(arrivalLbl)
+        								.addPreferredGap(ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+        								.addComponent(arrivalCmb, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+        							.addGroup(menuPanelLayout.createSequentialGroup()
+        								.addComponent(passengerIdLbl)
+        								.addPreferredGap(ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+        								.addComponent(passengerIdTxt, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+        							.addComponent(deployTrainsTitle)
+        							.addGroup(menuPanelLayout.createSequentialGroup()
+        								.addComponent(trainIdLbl)
+        								.addPreferredGap(ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+        								.addComponent(trainIdTxt, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+        							.addGroup(menuPanelLayout.createSequentialGroup()
+        								.addComponent(trainSeatsLbl)
+        								.addPreferredGap(ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+        								.addComponent(trainSeatsTxt, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+        							.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)))
+        					.addGroup(menuPanelLayout.createSequentialGroup()
+        						.addContainerGap(31, Short.MAX_VALUE)
+        						.addComponent(addPassengerTitle))))
+        			.addGap(41))
         );
         menuPanelLayout.setVerticalGroup(
-            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(addPassengerTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(departureLbl)
-                    .addComponent(departureCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(arrivalLbl)
-                    .addComponent(arrivalCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passengerIdLbl)
-                    .addComponent(passengerIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addPassengerBtn)
-                .addGap(18, 18, 18)
-                .addComponent(deployTrainsTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(trainIdLbl)
-                    .addComponent(trainIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(trainSeatsLbl)
-                    .addComponent(trainSeatsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addTrainBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+        	menuPanelLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPanelLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(addPassengerTitle)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(departureLbl)
+        				.addComponent(departureCmb, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(arrivalLbl)
+        				.addComponent(arrivalCmb, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(passengerIdLbl)
+        				.addComponent(passengerIdTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(addPassengerBtn)
+        			.addGap(18)
+        			.addComponent(deployTrainsTitle)
+        			.addGap(11)
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(trainIdLbl)
+        				.addComponent(trainIdTxt, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE))
+        			.addGap(4)
+        			.addGroup(menuPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(trainSeatsLbl)
+        				.addComponent(trainSeatsTxt, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE))
+        			.addGap(11)
+        			.addComponent(addTrainBtn)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE)
+        			.addGap(32))
         );
+        menuPanel.setLayout(menuPanelLayout);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, null));
@@ -897,17 +962,19 @@ public class MainView extends javax.swing.JFrame{
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bgpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(bgpanel, GroupLayout.PREFERRED_SIZE, 1277, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bgpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(bgpanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -20,8 +20,8 @@ public class Passenger implements Runnable{
 		passID = id;
 		sStation = s;
 		dStation = d;
-                this.stations = stations;
-                view = v;
+        this.stations = stations;
+        view = v;
 	}
 	
 	public void station_wait_for_train(Station s) {

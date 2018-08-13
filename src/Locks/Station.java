@@ -10,7 +10,7 @@ public class Station{
 	public Station(int id) {
 		// TODO Auto-generated constructor stub
 		stationID = id;
-                passengers = new ArrayList<Passenger>();
+        passengers = new ArrayList<Passenger>();
 	}
 	
 	public boolean hasTrain() {

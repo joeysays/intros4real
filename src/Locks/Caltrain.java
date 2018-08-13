@@ -9,12 +9,14 @@ public class Caltrain {
 	private static int trainID=0;
 	private static int passID=0;
 	private MainView view;
+	private TableCellRenderer renderer;
         
 	public Caltrain() {
 		// TODO Auto-generated constructor stub
                 stations = new ArrayList<>();
                 trains = new ArrayList<>();
                 station_init();
+                renderer = new TableCellRenderer();
 	}
 	
 	public static void station_init() { //initialize the stations
@@ -47,23 +49,38 @@ public class Caltrain {
 					stations.get(i).addPassenger(p);
 					System.out.println("Passenger " + passID + " is waiting at Station " + stations.get(i).getID() + " and wants to go to Station " + destination + ".");
                                         view.appendLog(java.time.LocalTime.now() + ": Passenger " + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID() + " has been deployed and wants to go to Station " + destination + "\n");
-                                        if(spawn == 1)
+                                        if(spawn == 1) {
                                             view.getPassengerTable1().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 2)
+                                        	view.getPassTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 2) {
                                             view.getPassengerTable2().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 3)
+                                            view.getPassTable2JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 3) {
                                             view.getPassengerTable3().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 4)
+                                            view.getPassTable3JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 4) {
                                             view.getPassengerTable4().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 5)
+                                            view.getPassTable4JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 5) {
                                             view.getPassengerTable5().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 6)
+                                            view.getPassTable5JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 6) {
                                             view.getPassengerTable6().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 7)
+                                            view.getPassTable6JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 7) {
                                             view.getPassengerTable7().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        else if(spawn == 8)
+                                            view.getPassTable7JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
+                                        else if(spawn == 8) {
                                             view.getPassengerTable8().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-
+                                            view.getPassTable8JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                        }
                                         p.start();
                                         return true;
                                 }

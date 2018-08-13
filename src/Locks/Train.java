@@ -1,8 +1,12 @@
 package Locks;
 
+import java.awt.Image;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
         
 public class Train implements Runnable{
 	private int trainID;
@@ -10,10 +14,12 @@ public class Train implements Runnable{
 	private int currentStation; // 0 if just spawned/is in between stations
 	private int prevStation; // 0 if just spawned
 	private ArrayList<Passenger> passengers;
-        private ArrayList<Station> stations;
-        private Thread t;
-        private ReentrantLock lock = new ReentrantLock();
-        private MainView view;
+    private ArrayList<Station> stations;
+    private Thread t;
+    private ReentrantLock lock = new ReentrantLock();
+    private MainView view;
+    private Image icon = new ImageIcon("res/train2.png").getImage();
+    private TableCellRenderer renderer;
 	
 	public Train(int id, int c, ArrayList<Station> s, MainView v) {
 		// TODO Auto-generated constructor stub
@@ -21,9 +27,10 @@ public class Train implements Runnable{
 		seats = c;
 		prevStation = 0; //spawned
 		currentStation = 0; //not in any station
-                stations = s;
-                passengers = new ArrayList<>(c);
-                view = v;
+        stations = s;
+        passengers = new ArrayList<>(c);
+        view = v;
+        renderer = new TableCellRenderer();
 	}
 
 	public void station_load_train(Station s, int count) { //invokes when train has arrived at a station
@@ -42,6 +49,8 @@ public class Train implements Runnable{
                             currentStation = 1;
                             prevStation = 1;
                             view.getTrainTable1().addRow(new Object[]{("Train ") + trainID});
+                            view.getTrainTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                            view.getTrainTable1JTable().setRowHeight(20);
                         } else{
                             try{
                                 TimeUnit.SECONDS.sleep(3);
@@ -64,9 +73,13 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable2().addRow(new Object[]{("Train ") + trainID});
+//                              view.getTrainTable2().setValueAt(icon, 0, 0);
+                                view.getTrainTable2JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable2JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable2().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
+                                    
                                 }
                             }
                             if(currentStation == 3){
@@ -75,6 +88,8 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable3().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable3JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable3JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable3().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -86,6 +101,8 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable4().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable4JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable4JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable4().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -97,6 +114,8 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable5().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable5JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable5JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable5().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -108,6 +127,8 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable6().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable6JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable6JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable6().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -119,6 +140,8 @@ public class Train implements Runnable{
                                 }
                                 
                                 view.getTrainTable7().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable7JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable7JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable7().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -127,9 +150,12 @@ public class Train implements Runnable{
                             if(currentStation == 8){
                                 for(int i = view.getTrainTable7().getRowCount()-1; i >= 0; i--){
                                     view.getTrainTable7().removeRow(i);
+                                    
                                 }
                                 
                                 view.getTrainTable8().addRow(new Object[]{("Train ") + trainID});
+                                view.getTrainTable8JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                view.getTrainTable8JTable().setRowHeight(20);
                                 
                                 for(int i = 0; i < passengers.size(); i++){
                                     view.getTrainTable8().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
@@ -296,7 +322,7 @@ public class Train implements Runnable{
             
             lock.lock();
             try{
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
                 check_leaving_passengers();
                 proceed_next_station();
             }catch(InterruptedException e){
