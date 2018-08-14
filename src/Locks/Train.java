@@ -199,7 +199,7 @@ public class Train implements Runnable{
                 }
         }
         
-        public void check_leaving_passengers(){
+        public void check_leaving_passengers() throws InterruptedException{
             for(int i = 0; i< passengers.size(); i++){
                 if(passengers.get(i).getDestination() == currentStation){
                     view.appendLog(java.time.LocalTime.now() + ": Passenger " + passengers.get(i).getID() + " got off at Station " + currentStation + "\n");
@@ -210,17 +210,28 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable1().getRowCount(); j++){
                              if (((String)view.getTrainTable1().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable1().removeRow(j);
+                                view.getPassengerTable1().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable1().removeRow(0);
                                 break;
                             }
+                             view.getPassengerTable1().removeRow(0);
                         }
                     }
                     
                     else if(currentStation == 2){
-                        for(int j = 1; j < view.getTrainTable2().getRowCount(); j++){
+                        for(int j = 0; j < view.getTrainTable2().getRowCount(); j++){
                              if (((String)view.getTrainTable2().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable2().removeRow(j);
+                                view.getPassengerTable2().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable2JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                            //    view.getPassengerTable2().removeRow(0);
+                                Thread.sleep(500);
+                                view.getPassengerTable2().removeRow(0);
                                 break;
                             }
+                            
                         }
                     }
                     
@@ -228,6 +239,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable3().getRowCount(); j++){
                             if (((String)view.getTrainTable3().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable3().removeRow(j);
+                                view.getPassengerTable3().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable3JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable3().removeRow(0);
                                 break;
                             }
                         }
@@ -237,6 +252,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable4().getRowCount(); j++){
                             if (((String)view.getTrainTable4().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable4().removeRow(j);
+                                view.getPassengerTable4().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable4JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable4().removeRow(0);
                                 break;
                             }
                         }
@@ -246,6 +265,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable5().getRowCount(); j++){
                             if (((String)view.getTrainTable5().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable5().removeRow(j);
+                                view.getPassengerTable5().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable5JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable5().removeRow(0);
                                 break;
                             }
                         }
@@ -255,6 +278,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable6().getRowCount(); j++){
                             if (((String)view.getTrainTable6().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable6().removeRow(j);
+                                view.getPassengerTable6().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable6JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable6().removeRow(0);
                                 break;
                             }
                         }
@@ -264,6 +291,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable7().getRowCount(); j++){
                             if (((String)view.getTrainTable7().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable7().removeRow(j);
+                                view.getPassengerTable7().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable7JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable7().removeRow(0);
                                 break;
                             }
                         }
@@ -273,6 +304,10 @@ public class Train implements Runnable{
                         for(int j = 1; j < view.getTrainTable8().getRowCount(); j++){
                             if (((String)view.getTrainTable8().getValueAt(j, 0)).equals(temp)) {
                                 view.getTrainTable8().removeRow(j);
+                                view.getPassengerTable8().addRow(new Object[]{("Passenger" + passengers.get(0).getID())});
+                                view.getPassTable8JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                Thread.sleep(500);
+                                view.getPassengerTable8().removeRow(0);
                                 break;
                             }
                         }

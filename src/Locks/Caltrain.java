@@ -51,7 +51,7 @@ public class Caltrain {
                                         view.appendLog(java.time.LocalTime.now() + ": Passenger " + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID() + " has been deployed and wants to go to Station " + destination + "\n");
                                         if(spawn == 1) {
                                             view.getPassengerTable1().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
-                                        	view.getPassTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                            view.getPassTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
                                         }
                                         else if(spawn == 2) {
                                             view.getPassengerTable2().addRow(new Object[]{("Passenger" + getStations().get(spawn-1).getPassengers().get(getStations().get(spawn-1).getPassengers().size()-1).getID())});
