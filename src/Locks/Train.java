@@ -176,13 +176,25 @@ public class Train implements Runnable{
                                 currentStation = 1;
                                 prevStation = 1;  
                                 if(currentStation == 1){
-                                view.getTrainTable8().removeRow(0);
-                                view.getTrainTable1().addRow(new Object[]{("Train ") + trainID});
-                            }
+                                    //view.getTrainTable1().removeRow(0);
+                                    for(int i = view.getTrainTable8().getRowCount()-1; i >= 0; i--){
+                                        view.getTrainTable8().removeRow(i);
+                                    }
+
+                                    view.getTrainTable1().addRow(new Object[]{("Train ") + trainID});
+    //                              view.getTrainTable2().setValueAt(icon, 0, 0);
+                                    view.getTrainTable1JTable().getColumnModel().getColumn(0).setCellRenderer(renderer);
+                                    view.getTrainTable1JTable().setRowHeight(20);
+
+                                    for(int i = 0; i < passengers.size(); i++){
+                                        view.getTrainTable1().addRow(new Object[]{("Passenger" + passengers.get(i).getID())});
+
+                                    }
+                                }
                             }
                         else{
                         }
-                        
+
                     }
                 } else if (currentStation > 0){
                     if(passengers.size() == seats) { //if train is full
