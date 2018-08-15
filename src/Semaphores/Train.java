@@ -1,9 +1,9 @@
-package Locks;
+package Semaphores;
 
 import java.awt.Image;
 import java.util.*;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
@@ -16,10 +16,10 @@ public class Train implements Runnable{
 	private ArrayList<Passenger> passengers;
     private ArrayList<Station> stations;
     private Thread t;
-    private ReentrantLock lock = new ReentrantLock();
     private MainView view;
     private Image icon = new ImageIcon("res/train2.png").getImage();
     private TableCellRenderer renderer;
+    private Semaphore semaphore;
 	
 	public Train(int id, int c, ArrayList<Station> s, MainView v) {
 		// TODO Auto-generated constructor stub
@@ -367,17 +367,18 @@ public class Train implements Runnable{
             while(true){
                 System.out.println("Train" + trainID + " thread is running.");
             
-            lock.lock();
+            
             try{
-                
+                semaphore.acquire();
                 check_leaving_passengers();
                 proceed_next_station();
                 TimeUnit.SECONDS.sleep(1);
             }catch(InterruptedException e){
                 e.printStackTrace();
-            }finally{
-                lock.unlock();
             }
+            
+            semaphore.release();
+            
 
             }
         }
