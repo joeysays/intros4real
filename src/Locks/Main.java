@@ -8,7 +8,7 @@ package Locks;
 
 /**
  *
- * @author joshd
+ * @author Belle
  */
 public class Main {
 	public static void main(String[] args) {

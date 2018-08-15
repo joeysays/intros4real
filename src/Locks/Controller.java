@@ -8,7 +8,7 @@ package Locks;
 
 /**
  *
- * @author Shan Lee Kim
+ * @author Belle
  */
 
 import java.util.*;
